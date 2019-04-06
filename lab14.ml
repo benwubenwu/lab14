@@ -202,5 +202,5 @@ useful: *)
 let not_div_by (n : int) (m : int) : bool = 
   not (m mod n = 0) ;;
 
-let rec sieve s = failwith "sieve not implemented" ;;
-
+let rec sieve s = 
+  fun () -> Cons (head s, sieve (sfilter (not_div_by (head s)) (tail s))) ;;
